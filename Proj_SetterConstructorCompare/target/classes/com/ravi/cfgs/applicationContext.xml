@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dt" class="java.util.Date"/>
+	<bean id="dt1" class="java.util.Date">
+	<!-- add 1900 to given year so becomes 2010 -->
+	<property name="year" value="110"/>  
+	<!-- Month 1 to 11 -->
+	<property name="month" value="4"/> 
+	<!-- Day 1 to 31 -->   
+	<property name="date" value="20"/>    
+	</bean>
+	<bean id="wm" class="com.ravi.bean.WishMessage">
+	<!-- Constructor and Setter injection is both present and execute same bean class object
+	 then final output is setter injection because Constructor injection is first execute then setter injection
+	 execute so setter injection is overridden then final is setter injection. -->
+	<constructor-arg name="date" ref="dt"/>
+	<property name="date" ref="dt1"/>
+	</bean>
+</beans>
